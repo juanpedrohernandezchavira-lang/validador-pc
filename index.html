@@ -13,81 +13,69 @@
             <p>Simulador de Ensamble y Compatibilidad</p>
         </header>
 
-        <section class="builder-panel">
-            <h2><span class="icon">🛠️</span> Selecciona tus Componentes</h2>
-            
-            <div class="form-group">
-                <label for="cpuBrand">Marca de Procesador:</label>
-                <select id="cpuBrand" onchange="filtrarSockets()">
-                    <option value="">-- Selecciona una marca --</option>
-                    <option value="AMD">AMD</option>
-                    <option value="Intel">Intel</option>
-                </select>
-            </div>
+        <div class="workspace">
+            <section class="builder-panel">
+                <h2>🛠️ Selecciona tus Componentes</h2>
+                
+                <div class="form-group">
+                    <label>Marca de Procesador:</label>
+                    <select id="cpuBrand" onchange="filtrarSockets()">
+                        <option value="">-- Selecciona una marca --</option>
+                        <option value="AMD">AMD</option>
+                        <option value="Intel">Intel</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="cpuSocket">Arquitectura / Socket:</label>
-                <select id="cpuSocket" onchange="filtrarComponentes()" disabled>
-                    <option value="">-- Selecciona primero la marca --</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label>Arquitectura / Socket:</label>
+                    <select id="cpuSocket" onchange="filtrarComponentes()" disabled>
+                        <option value="">-- Selecciona primero la marca --</option>
+                    </select>
+                </div>
 
-            <hr style="border: 1px solid #333; margin: 20px 0;">
+                <div class="form-group">
+                    <label>Procesador (CPU):</label>
+                    <select id="cpu" onchange="actualizarSimulacion()" disabled></select>
+                </div>
 
-            <div class="form-group">
-                <label for="cpu">Procesador (CPU):</label>
-                <select id="cpu" onchange="actualizarSimulacion()" disabled>
-                    <option value="">-- Esperando selección de socket --</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label>Tarjeta Madre (Motherboard):</label>
+                    <select id="motherboard" onchange="actualizarSimulacion()" disabled></select>
+                </div>
 
-            <div class="form-group">
-                <label for="motherboard">Tarjeta Madre (Motherboard):</label>
-                <select id="motherboard" onchange="actualizarSimulacion()" disabled>
-                    <option value="">-- Esperando selección de socket --</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label>Memoria RAM:</label>
+                    <select id="ram" onchange="actualizarSimulacion()"></select>
+                </div>
 
-            <div class="form-group">
-                <label for="ram">Memoria RAM:</label>
-                <select id="ram" onchange="actualizarSimulacion()">
-                    <option value="">-- Selecciona memoria --</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label>Tarjeta de Video (GPU):</label>
+                    <select id="gpu" onchange="actualizarSimulacion()"></select>
+                </div>
 
-            <div class="form-group">
-                <label for="gpu">Tarjeta de Video (GPU):</label>
-                <select id="gpu" onchange="actualizarSimulacion()">
-                    <option value="">-- Selecciona GPU --</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label>Fuente de Poder (PSU):</label>
+                    <select id="psu" onchange="actualizarSimulacion()"></select>
+                </div>
 
-            <div class="form-group">
-                <label for="psu">Fuente de Poder (PSU):</label>
-                <select id="psu" onchange="actualizarSimulacion()">
-                    <option value="">-- Selecciona PSU --</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label>Almacenamiento (SSD):</label>
+                    <select id="storage" onchange="actualizarSimulacion()"></select>
+                </div>
+            </section>
 
-            <div class="form-group">
-                <label for="storage">Almacenamiento (SSD):</label>
-                <select id="storage" onchange="actualizarSimulacion()">
-                    <option value="">-- Selecciona SSD --</option>
-                </select>
-            </div>
-        </section>
-
-        <section class="status-panel">
-            <div class="price-card">
-                <h3>Presupuesto</h3>
-                <div id="totalPrice">$0.00 MXN</div>
-            </div>
-            <div class="diagnostic-card">
-                <h3>Reporte</h3>
-                <div id="statusReport" class="report-box">Selecciona componentes...</div>
-            </div>
-            <div id="purposeReport" class="purpose-box"></div>
-        </section>
+            <section class="status-panel">
+                <div class="price-card">
+                    <h3>Presupuesto</h3>
+                    <div id="totalPrice" class="price-display">$0.00 MXN</div>
+                </div>
+                <div class="diagnostic-card">
+                    <h3>Reporte de Compatibilidad</h3>
+                    <div id="statusReport" class="report-box status-waiting">Selecciona componentes para iniciar...</div>
+                </div>
+                <div id="purposeReport" class="purpose-box"></div>
+            </section>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
