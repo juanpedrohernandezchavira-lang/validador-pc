@@ -2,80 +2,49 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Builder PC</title>
+    <title>Master Builder PC Pro</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <div class="main-container">
-        <header>
-            <h1>Master Builder PC</h1>
-            <p>Simulador de Ensamble y Compatibilidad</p>
-        </header>
+        <h1>Master Builder PC</h1>
+        
+        <section class="builder-panel">
+            <div class="form-group">
+                <label>Tipo de Equipo:</label>
+                <select id="deviceType" onchange="limpiarYFiltrar()">
+                    <option value="">-- Selecciona el tipo --</option>
+                    <option value="desktop">PC de Escritorio</option>
+                    <option value="laptop">Laptop</option>
+                </select>
+            </div>
 
-        <div class="workspace">
-            <section class="builder-panel">
-                <h2>🛠️ Selecciona tus Componentes</h2>
-                
-                <div class="form-group">
-                    <label>Marca de Procesador:</label>
-                    <select id="cpuBrand" onchange="filtrarSockets()">
-                        <option value="">-- Selecciona una marca --</option>
-                        <option value="AMD">AMD</option>
-                        <option value="Intel">Intel</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label>Marca de CPU:</label>
+                <select id="cpuBrand" onchange="filtrarSockets()">
+                    <option value="">-- Selecciona --</option>
+                    <option value="AMD">AMD</option>
+                    <option value="Intel">Intel</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label>Arquitectura / Socket:</label>
-                    <select id="cpuSocket" onchange="filtrarComponentes()" disabled>
-                        <option value="">-- Selecciona primero la marca --</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label>Socket:</label>
+                <select id="cpuSocket" onchange="filtrarComponentes()"></select>
+            </div>
 
-                <div class="form-group">
-                    <label>Procesador (CPU):</label>
-                    <select id="cpu" onchange="actualizarSimulacion()" disabled></select>
-                </div>
+            <div class="form-group"><label>CPU:</label><select id="cpu" onchange="actualizarSimulacion()"></select></div>
+            <div class="form-group"><label>Motherboard:</label><select id="motherboard" onchange="actualizarSimulacion()"></select></div>
+            <div class="form-group"><label>RAM:</label><select id="ram" onchange="actualizarSimulacion()"></select></div>
+            <div class="form-group"><label>GPU:</label><select id="gpu" onchange="actualizarSimulacion()"></select></div>
+            <div class="form-group"><label>PSU:</label><select id="psu" onchange="actualizarSimulacion()"></select></div>
+            <div class="form-group"><label>Almacenamiento:</label><select id="storage" onchange="actualizarSimulacion()"></select></div>
+        </section>
 
-                <div class="form-group">
-                    <label>Tarjeta Madre (Motherboard):</label>
-                    <select id="motherboard" onchange="actualizarSimulacion()" disabled></select>
-                </div>
-
-                <div class="form-group">
-                    <label>Memoria RAM:</label>
-                    <select id="ram" onchange="actualizarSimulacion()"></select>
-                </div>
-
-                <div class="form-group">
-                    <label>Tarjeta de Video (GPU):</label>
-                    <select id="gpu" onchange="actualizarSimulacion()"></select>
-                </div>
-
-                <div class="form-group">
-                    <label>Fuente de Poder (PSU):</label>
-                    <select id="psu" onchange="actualizarSimulacion()"></select>
-                </div>
-
-                <div class="form-group">
-                    <label>Almacenamiento (SSD):</label>
-                    <select id="storage" onchange="actualizarSimulacion()"></select>
-                </div>
-            </section>
-
-            <section class="status-panel">
-                <div class="price-card">
-                    <h3>Presupuesto</h3>
-                    <div id="totalPrice" class="price-display">$0.00 MXN</div>
-                </div>
-                <div class="diagnostic-card">
-                    <h3>Reporte de Compatibilidad</h3>
-                    <div id="statusReport" class="report-box status-waiting">Selecciona componentes para iniciar...</div>
-                </div>
-                <div id="purposeReport" class="purpose-box"></div>
-            </section>
-        </div>
+        <section class="status-panel">
+            <div id="totalPrice">Total: $0.00 MXN</div>
+            <div id="statusReport">Selecciona componentes...</div>
+        </section>
     </div>
     <script src="app.js"></script>
 </body>

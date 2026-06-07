@@ -1,111 +1,107 @@
-// ==========================================================================
-// BASE DE DATOS AMPLIADA
-// ==========================================================================
 const arquitecturas = {
-    AMD: [
-        { id: "AM4", nombre: "Socket AM4 (Ryzen 3000 / 4000 / 5000)" },
-        { id: "AM5", nombre: "Socket AM5 (Ryzen 7000 / 8000 / 9000)" }
-    ],
-    Intel: [
-        { id: "LGA1200", nombre: "LGA1200 (Intel 10ma/11va Gen)" },
-        { id: "LGA1700", nombre: "LGA1700 (Intel 12va/13va/14va Gen)" }
-    ]
+    AMD: [{ id: "AM4", nombre: "Socket AM4" }, { id: "AM5", nombre: "Socket AM5" }],
+    Intel: [{ id: "LGA1200", nombre: "LGA1200" }, { id: "LGA1700", nombre: "LGA1700" }]
 };
 
 const repositorio = {
     cpu: [
-        // AM4
-        { id: "r3_4100", nombre: "AMD Ryzen 3 4100", precio: 1200, socket: "AM4", ddr: 4 },
-        { id: "r5_3600", nombre: "AMD Ryzen 5 3600", precio: 1650, socket: "AM4", ddr: 4 },
-        { id: "r5_5600", nombre: "AMD Ryzen 5 5600", precio: 2300, socket: "AM4", ddr: 4 },
-        { id: "r7_5700x", nombre: "AMD Ryzen 7 5700X", precio: 3500, socket: "AM4", ddr: 4 },
-        { id: "r9_5900x", nombre: "AMD Ryzen 9 5900X", precio: 5200, socket: "AM4", ddr: 4 },
-        // AM5
-        { id: "r5_7600", nombre: "AMD Ryzen 5 7600", precio: 3800, socket: "AM5", ddr: 5 },
-        { id: "r7_7700x", nombre: "AMD Ryzen 7 7700X", precio: 5500, socket: "AM5", ddr: 5 },
-        { id: "r9_7900x", nombre: "AMD Ryzen 9 7900X", precio: 7200, socket: "AM5", ddr: 5 },
-        { id: "r7_7800x3d", nombre: "AMD Ryzen 7 7800X3D", precio: 7800, socket: "AM5", ddr: 5 },
-        // LGA1200
-        { id: "i3_10100", nombre: "Intel Core i3 10100", precio: 1500, socket: "LGA1200", ddr: 4 },
-        { id: "i5_10400f", nombre: "Intel Core i5 10400F", precio: 1850, socket: "LGA1200", ddr: 4 },
-        { id: "i7_11700k", nombre: "Intel Core i7 11700K", precio: 3200, socket: "LGA1200", ddr: 4 },
-        // LGA1700
-        { id: "i3_12100f", nombre: "Intel Core i3 12100F", precio: 1700, socket: "LGA1700", ddr: 4 },
-        { id: "i5_12400f", nombre: "Intel Core i5 12400F", precio: 2100, socket: "LGA1700", ddr: 4 },
-        { id: "i5_13600k", nombre: "Intel Core i5 13600K", precio: 4800, socket: "LGA1700", ddr: 5 },
-        { id: "i7_14700k", nombre: "Intel Core i7 14700K", precio: 7500, socket: "LGA1700", ddr: 5 },
-        { id: "i9_14900k", nombre: "Intel Core i9 14900K", precio: 11500, socket: "LGA1700", ddr: 5 }
+        // AM4 (Series 3000, 4000, 5000)
+        { id: "r3_3100", nombre: "Ryzen 3 3100", precio: 1200, socket: "AM4", categoria: "desktop" },
+        { id: "r5_3600", nombre: "Ryzen 5 3600", precio: 1650, socket: "AM4", categoria: "desktop" },
+        { id: "r7_3700x", nombre: "Ryzen 7 3700X", precio: 2800, socket: "AM4", categoria: "desktop" },
+        { id: "r5_4500", nombre: "Ryzen 5 4500", precio: 1500, socket: "AM4", categoria: "desktop" },
+        { id: "r7_4700g", nombre: "Ryzen 7 4700G", precio: 2200, socket: "AM4", categoria: "desktop" },
+        { id: "r5_5500", nombre: "Ryzen 5 5500", precio: 1800, socket: "AM4", categoria: "desktop" },
+        { id: "r5_5600", nombre: "Ryzen 5 5600", precio: 2300, socket: "AM4", categoria: "desktop" },
+        { id: "r7_5700x", nombre: "Ryzen 7 5700X", precio: 3200, socket: "AM4", categoria: "desktop" },
+        { id: "r9_5900x", nombre: "Ryzen 9 5900X", precio: 5500, socket: "AM4", categoria: "desktop" },
+        // AM5 (Series 7000, 9000)
+        { id: "r5_7600", nombre: "Ryzen 5 7600", precio: 3800, socket: "AM5", categoria: "desktop" },
+        { id: "r7_7700x", nombre: "Ryzen 7 7700X", precio: 5500, socket: "AM5", categoria: "desktop" },
+        { id: "r7_7800x3d", nombre: "Ryzen 7 7800X3D", precio: 7800, socket: "AM5", categoria: "desktop" },
+        { id: "r9_7950x", nombre: "Ryzen 9 7950X", precio: 9500, socket: "AM5", categoria: "desktop" },
+        { id: "r7_9700x", nombre: "Ryzen 7 9700X", precio: 8200, socket: "AM5", categoria: "desktop" },
+        // Intel
+        { id: "i3_12100", nombre: "Intel i3-12100", precio: 1700, socket: "LGA1700", categoria: "desktop" },
+        { id: "i5_12400f", nombre: "Intel i5-12400F", precio: 2100, socket: "LGA1700", categoria: "desktop" },
+        { id: "i5_13400", nombre: "Intel i5-13400", precio: 3500, socket: "LGA1700", categoria: "desktop" },
+        { id: "i7_14700k", nombre: "Intel i7-14700K", precio: 7500, socket: "LGA1700", categoria: "desktop" },
+        { id: "i9_14900k", nombre: "Intel i9-14900K", precio: 11500, socket: "LGA1700", categoria: "desktop" },
+        // Laptops
+        { id: "i7_13700h", nombre: "i7-13700H (Laptop)", precio: 14000, socket: "none", categoria: "laptop" },
+        { id: "r9_7940hs", nombre: "Ryzen 9 7940HS (Laptop)", precio: 15500, socket: "none", categoria: "laptop" }
     ],
     motherboard: [
-        { id: "mb_a520", nombre: "ASUS Prime A520M-K (AM4 | DDR4)", precio: 1300, socket: "AM4", ddr: 4 },
-        { id: "mb_b450", nombre: "MSI B450 Tomahawk (AM4 | DDR4)", precio: 1900, socket: "AM4", ddr: 4 },
-        { id: "mb_b650", nombre: "Gigabyte B650M DS3H (AM5 | DDR5)", precio: 2900, socket: "AM5", ddr: 5 },
-        { id: "mb_x670", nombre: "ASUS TUF X670E-Plus (AM5 | DDR5)", precio: 5500, socket: "AM5", ddr: 5 },
-        { id: "mb_h510", nombre: "Gigabyte H510M (LGA1200 | DDR4)", precio: 1400, socket: "LGA1200", ddr: 4 },
-        { id: "mb_b560", nombre: "MSI B560M Pro (LGA1200 | DDR4)", precio: 2100, socket: "LGA1200", ddr: 4 },
-        { id: "mb_b760", nombre: "ASUS Prime B760M-A (LGA1700 | DDR5)", precio: 3200, socket: "LGA1700", ddr: 5 },
-        { id: "mb_z790", nombre: "MSI Z790 Gaming Plus (LGA1700 | DDR5)", precio: 5800, socket: "LGA1700", ddr: 5 }
+        { id: "mb_a520", nombre: "A520M (AM4)", precio: 1300, socket: "AM4", categoria: "desktop" },
+        { id: "mb_b450", nombre: "B450M (AM4)", precio: 1600, socket: "AM4", categoria: "desktop" },
+        { id: "mb_b650", nombre: "B650M (AM5)", precio: 2900, socket: "AM5", categoria: "desktop" },
+        { id: "mb_z790", nombre: "Z790 (LGA1700)", precio: 5800, socket: "LGA1700", categoria: "desktop" },
+        { id: "mb_laptop", nombre: "Placa Base Integrada (Laptop)", precio: 0, socket: "none", categoria: "laptop" }
     ],
     ram: [
-        { id: "ram_8_d4", nombre: "8GB DDR4 3200MHz", precio: 400, ddr: 4 },
-        { id: "ram_16_d4", nombre: "16GB DDR4 3200MHz", precio: 750, ddr: 4 },
-        { id: "ram_16_d5", nombre: "16GB DDR5 5600MHz", precio: 1200, ddr: 5 },
-        { id: "ram_32_d5", nombre: "32GB DDR5 6000MHz", precio: 2200, ddr: 5 }
+        { id: "d4_8", nombre: "8GB DDR4", precio: 400, categoria: "desktop" },
+        { id: "d4_16", nombre: "16GB DDR4", precio: 750, categoria: "desktop" },
+        { id: "d5_16", nombre: "16GB DDR5", precio: 1200, categoria: "desktop" },
+        { id: "so_16", nombre: "16GB SO-DIMM (Laptop)", precio: 1500, categoria: "laptop" }
     ],
     gpu: [
-        { id: "rtx_3050", nombre: "NVIDIA RTX 3050 8GB", precio: 4500 },
-        { id: "rtx_4060", nombre: "NVIDIA RTX 4060 8GB", precio: 6500 },
-        { id: "rtx_4070", nombre: "NVIDIA RTX 4070 12GB", precio: 12000 }
+        { id: "nv_1050", nombre: "GTX 1050 (NVIDIA)", precio: 2000, categoria: "desktop" },
+        { id: "nv_1660", nombre: "GTX 1660 Super", precio: 3500, categoria: "desktop" },
+        { id: "nv_3060", nombre: "RTX 3060", precio: 6000, categoria: "desktop" },
+        { id: "nv_4070", nombre: "RTX 4070", precio: 12000, categoria: "desktop" },
+        { id: "amd_560", nombre: "RX 560 (AMD)", precio: 1800, categoria: "desktop" },
+        { id: "amd_6600", nombre: "RX 6600", precio: 4200, categoria: "desktop" },
+        { id: "amd_7700xt", nombre: "RX 7700 XT", precio: 9500, categoria: "desktop" }
     ],
     psu: [
-        { id: "psu_500", nombre: "EVGA 500W Bronze", precio: 900 },
-        { id: "psu_650", nombre: "Corsair 650W Gold", precio: 1800 },
-        { id: "psu_850", nombre: "MSI 850W Gold Modular", precio: 2600 }
+        { id: "psu_400", nombre: "400W Básica", precio: 600, categoria: "desktop" },
+        { id: "psu_650", nombre: "650W Gold", precio: 1800, categoria: "desktop" },
+        { id: "psu_850", nombre: "850W Modular", precio: 2800, categoria: "desktop" }
     ],
     storage: [
-        { id: "ssd_500", nombre: "SSD 500GB NVMe", precio: 700 },
-        { id: "ssd_1tb", nombre: "SSD 1TB NVMe", precio: 1200 }
+        { id: "ssd_500", nombre: "SSD 500GB NVMe", precio: 700, categoria: "desktop" },
+        { id: "ssd_1tb", nombre: "SSD 1TB NVMe", precio: 1200, categoria: "desktop" }
     ]
 };
 
-// ==========================================================================
-// LÓGICA (NO MODIFICAR)
-// ==========================================================================
+// --- LÓGICA DE FILTRADO MAESTRA ---
+function filtrarComponentes() {
+    const socket = document.getElementById("cpuSocket").value;
+    const tipo = document.getElementById("deviceType").value;
+    const keys = ["cpu", "motherboard", "ram", "gpu", "psu", "storage"];
+    
+    keys.forEach(key => {
+        const select = document.getElementById(key);
+        const valorPrevio = select.value;
+        select.innerHTML = '<option value="">-- Selecciona --</option>';
+        
+        repositorio[key].forEach(item => {
+            const matchCat = (item.categoria === tipo);
+            const matchSocket = (tipo === "laptop" || !item.socket || item.socket === socket);
+            
+            if (matchCat && matchSocket) {
+                select.innerHTML += `<option value="${item.id}">${item.nombre}</option>`;
+            }
+        });
+        select.value = valorPrevio;
+    });
+    actualizarSimulacion();
+}
+
 function filtrarSockets() {
     const marca = document.getElementById("cpuBrand").value;
     const socketSelect = document.getElementById("cpuSocket");
     socketSelect.innerHTML = '<option value="">-- Selecciona arquitectura --</option>';
-    if (marca) {
-        socketSelect.disabled = false;
+    if (marca && arquitecturas[marca]) {
         arquitecturas[marca].forEach(arq => socketSelect.innerHTML += `<option value="${arq.id}">${arq.nombre}</option>`);
-    } else {
-        socketSelect.disabled = true;
     }
     filtrarComponentes();
 }
 
-function filtrarComponentes() {
-    const socket = document.getElementById("cpuSocket").value;
-    const cpu = document.getElementById("cpu");
-    const mb = document.getElementById("motherboard");
-    
-    cpu.innerHTML = '<option value="">-- Selecciona CPU --</option>';
-    mb.innerHTML = '<option value="">-- Selecciona MB --</option>';
-
-    if(socket) {
-        cpu.disabled = false;
-        mb.disabled = false;
-        repositorio.cpu.forEach(c => { if(c.socket === socket) cpu.innerHTML += `<option value="${c.id}">${c.nombre}</option>`; });
-        repositorio.motherboard.forEach(m => { if(m.socket === socket) mb.innerHTML += `<option value="${m.id}">${m.nombre}</option>`; });
-    }
-    
-    // Llenar otros
-    ['ram','gpu','psu','storage'].forEach(id => {
-        const el = document.getElementById(id);
-        el.innerHTML = '<option value="">-- Selecciona --</option>';
-        repositorio[id].forEach(i => el.innerHTML += `<option value="${i.id}">${i.nombre}</option>`);
-    });
-    actualizarSimulacion();
+function limpiarYFiltrar() {
+    const tipo = document.getElementById("deviceType").value;
+    document.getElementById("cpuSocket").parentElement.style.display = (tipo === "laptop") ? "none" : "block";
+    filtrarComponentes();
 }
 
 function actualizarSimulacion() {
@@ -115,23 +111,5 @@ function actualizarSimulacion() {
         if(item) total += item.precio;
     });
     document.getElementById("totalPrice").innerText = `$${total.toLocaleString('es-MX')}.00 MXN`;
-
-    // Compatibilidad
-    const cpu = repositorio.cpu.find(c => c.id === document.getElementById("cpu").value);
-    const mb = repositorio.motherboard.find(m => m.id === document.getElementById("motherboard").value);
-    const ram = repositorio.ram.find(r => r.id === document.getElementById("ram").value);
-    const report = document.getElementById("statusReport");
-
-    if (cpu && mb && ram) {
-        if (mb.ddr === ram.ddr) {
-            report.className = "report-box status-success";
-            report.innerText = "✅ ¡Configuración 100% compatible!";
-        } else {
-            report.className = "report-box status-danger";
-            report.innerText = `❌ Error: La placa es DDR${mb.ddr} y la RAM es DDR${ram.ddr}.`;
-        }
-    } else {
-        report.className = "report-box status-waiting";
-        report.innerText = "Selecciona CPU, MB y RAM para validar.";
-    }
+    document.getElementById("statusReport").innerText = "Configuración activa...";
 }
