@@ -18,63 +18,49 @@
             <section class="builder-panel">
                 <h2><span class="icon">🛠️</span> Selecciona tus Componentes</h2>
                 
+                <div class="form-group platform-selector">
+                    <label for="platform" style="font-weight: bold; color: #00ffcc;">Tipo de Plataforma:</label>
+                    <select id="platform" onchange="cambiarPlataforma()">
+                        <option value="desktop">🖥️ PC de Escritorio (Desktop)</option>
+                        <option value="laptop">💻 Laptop Gaming (Portátil)</option>
+                    </select>
+                </div>
+
+                <hr style="border: 1px solid #333; margin: 20px 0;">
+
                 <div class="form-group">
                     <label for="cpu">Procesador (CPU):</label>
                     <select id="cpu" onchange="actualizarSimulacion()">
-                        <option value="">-- Selecciona un CPU --</option>
-                        <option value="r5_5600x">AMD Ryzen 5 5600X (AM4)</option>
-                        <option value="r7_7800x3d">AMD Ryzen 7 7800X3D (AM5)</option>
-                        <option value="i5_12400f">Intel Core i5 12400F (LGA1700)</option>
-                        <option value="i9_14900k">Intel Core i9 14900K (LGA1700)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="motherboard">Tarjeta Madre (Motherboard):</label>
                     <select id="motherboard" onchange="actualizarSimulacion()">
-                        <option value="">-- Selecciona una Motherboard --</option>
-                        <option value="b550m">ASUS B550M DS3H (AM4 | DDR4)</option>
-                        <option value="b650m">MSI MAG B650M (AM5 | DDR5)</option>
-                        <option value="h610m">MSI H610M-G (LGA1700 | DDR4)</option>
-                        <option value="z790">ASUS ROG Strix Z790 (LGA1700 | DDR5)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="ram">Memoria RAM:</label>
                     <select id="ram" onchange="actualizarSimulacion()">
-                        <option value="">-- Selecciona la RAM --</option>
-                        <option value="corsair_ddr4_16">Corsair Vengeance 16GB (2x8GB) DDR4</option>
-                        <option value="kingston_ddr5_32">Kingston Fury 32GB (2x16GB) DDR5</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="gpu">Tarjeta de Video (GPU):</label>
                     <select id="gpu" onchange="actualizarSimulacion()">
-                        <option value="">-- Gráficos Integrados / Selecciona GPU --</option>
-                        <option value="rtx_3050">NVIDIA RTX 3050 8GB</option>
-                        <option value="rtx_4070ti">NVIDIA RTX 4070 Ti Super 16GB</option>
-                        <option value="rx_6600">AMD Radeon RX 6600 8GB</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="psu">Fuente de Poder (PSU):</label>
                     <select id="psu" onchange="actualizarSimulacion()">
-                        <option value="">-- Selecciona la Fuente --</option>
-                        <option value="evga_500w">EVGA 500W 80+ White</option>
-                        <option value="corsair_750w">Corsair RM750e 750W 80+ Gold</option>
-                        <option value="msi_1000w">MSI MAG 1000W 80+ Gold</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="storage">Almacenamiento (SSD):</label>
                     <select id="storage" onchange="actualizarSimulacion()">
-                        <option value="">-- Selecciona Almacenamiento --</option>
-                        <option value="kingston_nvme_1tb">Kingston NV2 1TB NVMe M.2</option>
-                        <option value="crucial_sata_1tb">Crucial BX500 1TB SSD SATA</option>
                     </select>
                 </div>
             </section>
@@ -83,6 +69,11 @@
                 <div class="price-card">
                     <h3>Presupuesto Estimado</h3>
                     <div class="price-display" id="totalPrice">$0.00 MXN</div>
+                </div>
+
+                <div class="price-card" style="background: linear-gradient(135deg, #1e2640, #111); border-left: 5px solid #ffcc00; margin-top: 15px;">
+                    <h3>Consumo Eléctrico Estimado</h3>
+                    <div class="price-display" id="totalWatts" style="color: #ffcc00;">0 W</div>
                 </div>
 
                 <div class="diagnostic-card">
@@ -100,6 +91,18 @@
                 </div>
             </section>
         </div>
+
+        <footer class="video-instruction-section" style="margin-top: 40px; padding: 20px; background: #111; border-radius: 8px; text-align: center; border: 1px solid #222;">
+            <h3 style="color: #00ffcc; margin-bottom: 15px;">📺 ¿Cómo usar este cotizador? Ver Instrucciones</h3>
+            <div class="video-container" style="max-width: 700px; margin: 0 auto; aspect-ratio: 16/9;">
+                <iframe style="width: 100%; height: 100%; border: none; border-radius: 6px;" 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="Instrucciones de Uso" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </footer>
     </div>
 
     <script src="app.js"></script>
