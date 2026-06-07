@@ -1,0 +1,187 @@
+/* ==========================================================================
+   RESET & CONFIGURACIÓN GLOBAL
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #0c0c0e;
+    color: #e1e1e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* ==========================================================================
+   ENCABEZADO (HEADER)
+   ========================================================================== */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #00adb5;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 173, 181, 0.3);
+}
+
+header p {
+    color: #7c7c8a;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+   ÁREA DE TRABAJO EN GRID (RESPONSIVO)
+   ========================================================================== */
+.workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+@media (max-width: 900px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilo general para las tarjetas contenedoras */
+section, .price-card, .diagnostic-card, .purpose-card {
+    background-color: #121214;
+    border: 1px solid #202024;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+h2, h3 {
+    color: #f7f7f7;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #202024;
+    padding-bottom: 10px;
+}
+
+/* ==========================================================================
+   FORMULARIO Y MENÚS DESPLEGABLES
+   ========================================================================== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #a8a8b3;
+    font-size: 0.95rem;
+}
+
+select {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #1a1a1e;
+    color: #ffffff;
+    border: 1px solid #29292e;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #00adb5;
+    box-shadow: 0 0 8px rgba(0, 173, 181, 0.4);
+}
+
+select option {
+    background-color: #1a1a1e;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   TARJETA DE PRESUPUESTO (COSTOS)
+   ========================================================================== */
+.status-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.price-card {
+    text-align: center;
+    background: linear-gradient(135deg, #121214 0%, #1a1a1e 100%);
+    border-left: 5px solid #00adb5;
+}
+
+.price-display {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #00adb5;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   CUADROS DE DINÁMICOS DE REPORTE (ALERTAS)
+   ========================================================================== */
+.report-box, .purpose-box {
+    padding: 18px;
+    border-radius: 6px;
+    font-size: 1rem;
+    line-height: 1.5;
+    min-height: 80px;
+    transition: all 0.3s ease;
+}
+
+/* Estado inicial / Esperando componentes */
+.status-waiting {
+    background-color: #1a1a1e;
+    border: 1px dashed #48484a;
+    color: #7c7c8a;
+    text-align: center;
+}
+
+/* Compatible (Verde exitoso) */
+.status-success {
+    background-color: rgba(28, 61, 39, 0.6);
+    border: 1px solid #00e676;
+    color: #b9f6ca;
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.1);
+}
+
+/* Alerta de Incompatibilidad (Rojo crítico) */
+.status-danger {
+    background-color: rgba(60, 30, 30, 0.6);
+    border: 1px solid #ff5252;
+    color: #ff8a80;
+    box-shadow: 0 0 10px rgba(255, 82, 82, 0.1);
+}
+
+/* Información de Perfil / Propósito del equipo */
+.purpose-box {
+    background-color: #1a1a1e;
+    border: 1px solid #29292e;
+    color: #e1e1e6;
+}
+
+.purpose-highlight {
+    color: #00adb5;
+    font-weight: bold;
+}
